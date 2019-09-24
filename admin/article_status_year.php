@@ -1,21 +1,27 @@
 <?php include "main.php";
 $id = $_GET['journal_id'];
+$year = $_GET['year'];
+$month = $_GET['month'];
+
+
 if(isset($_REQUEST['journal_id'])){
   extract($_REQUEST);
   
 }
 if(isset($_POST['ArticleInPress'])){
-  $status = $_POST['ArticleInPress'];
-  $user->update_issue($id,$status);
-}
-if(isset($_POST['PreviousIssue'])){
-  $pre = $_POST['PreviousIssue'];
-  $user->update_issue($id,$pre);
-}
-if(isset($_POST['SpecialIssue'])){
-  $spe = $_POST['SpecialIssue'];
-  $user->update_issue($id,$spe);
-}
+    $status = $_POST['ArticleInPress'];
+    $user->update_issue($id,$status);
+  }
+  if(isset($_POST['PreviousIssue'])){
+    $pre = $_POST['PreviousIssue'];
+    $user->update_issue($id,$pre);
+  }
+  if(isset($_POST['SpecialIssue'])){
+    $spe = $_POST['SpecialIssue'];
+    $user->update_issue($id,$spe);
+  }
+
+
 ?>
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
@@ -85,41 +91,7 @@ if(isset($_POST['SpecialIssue'])){
             width: 200px;
         }
         /* Navbar container */
-        .dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
-
+        
 
     </style>
 </head>
@@ -141,129 +113,7 @@ if(isset($_POST['SpecialIssue'])){
     
       <!-- Panel Table Individual column searching -->
       <div class="panel">
-      <div class="dropdown">
-  <button class="dropbtn">January</button>
-  <div class="dropdown-content">
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2010&month=January">January 2010</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2011&month=January">January 2011</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2012&month=January">January 2012</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2013&month=January">January 2013</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2014&month=January">January 2014</a>
-  </div>
- </div>
- <div class="dropdown">
-  <button class="dropbtn">February</button>
-  <div class="dropdown-content">
-  <a   href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2010&month=February">February 2010</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2011&month=February">February 2011</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2012&month=February">February 2012</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2013&month=February">February 2013</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2014&month=February">February 2014</a>
-  </div>
- </div>
- <div class="dropdown">
-  <button class="dropbtn">March</button>
-  <div class="dropdown-content">
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2010&month=March">March 2010</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2011&month=March">March 2011</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2012&month=March">March 2012</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2013&month=March">March 2013</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2014&month=March">March 2014</a>
-  </div>
- </div>
- <div class="dropdown">
-  <button class="dropbtn">April</button>
-  <div class="dropdown-content">
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2010&month=April">April 2010</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2011&month=April">April 2011</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2012&month=April">April 2012</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2013&month=April">April 2013</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2014&month=April">April 2014</a>
-  </div>
- </div>
- <div class="dropdown">
-  <button class="dropbtn">May</button>
-  <div class="dropdown-content">
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2010&month=May">May 2010</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2011&month=May">May 2011</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2012&month=May">May 2012</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2013&month=May">May 2013</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2014&month=May">May 2014</a>
-  </div>
- </div>
- <div class="dropdown">
-  <button class="dropbtn">June</button>
-  <div class="dropdown-content">
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2010&month=June">June 2010</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2011&month=June">June 2011</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2012&month=June">June 2012</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2013&month=June">June 2013</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2014&month=June">June 2014</a>
-  </div>
- </div>
- 
- <div class="dropdown">
-  <button class="dropbtn">July</button>
-  <div class="dropdown-content">
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2010&month=July">July 2010</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2011&month=July">July 2011</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2012&month=July">July 2012</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2013&month=July">July 2013</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2014&month=July">July 2014</a>
-  </div>
- </div>
- <div class="dropdown">
-  <button class="dropbtn">August</button>
-  <div class="dropdown-content">
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2010&month=August">August 2010</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2011&month=August">August 2011</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2012&month=August">August 2012</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2013&month=August">August 2013</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2014&month=August">August 2014</a>
-  </div>
- </div>
- <div class="dropdown">
-  <button class="dropbtn">September</button>
-  <div class="dropdown-content">
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2010&month=September">September 2010</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2011&month=September">September 2011</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2012&month=September">September 2012</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2013&month=September">September 2013</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2014&month=September">September 2014</a>
-  </div>
- </div>
- <div class="dropdown">
-  <button class="dropbtn">October</button>
-  <div class="dropdown-content">
-  <a   href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2010&month=October">October 2010</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2011&month=October">October 2011</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2012&month=October">October 2012</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2013&month=October">October 2013</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2014&month=October">October 2014</a>
-  </div>
- </div>
- <div class="dropdown">
-  <button class="dropbtn">November</button>
-  <div class="dropdown-content">
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2010&month=November">November 2010</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2011&month=November">November 2011</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2012&month=November">November 2012</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2013&month=November">November 2013</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2014&month=November">November 2014</a>
-  </div>
- </div>
- <div class="dropdown">
-  <button class="dropbtn">December</button>
-  <div class="dropdown-content">
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2010&month=December">December 2010</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2011&month=December">December 2011</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2012&month=December">December 2012</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2013&month=December">December 2013</a>
-    <a href="article_status_year.php?journal_id=<?php echo $id; ?>&year=2014&month=December">December 2014</a>
-  </div>
- </div>
-
-
+      
         <header class="panel-heading mb-3">
           <h3 class="panel-title text-center">Article Status</h3>
         </header>
@@ -278,7 +128,7 @@ if(isset($_POST['SpecialIssue'])){
             </thead>
             <tbody>
                
-              <?php $user->get_article_status($id); ?>
+              <?php $user->get_articles_byyear_month($id,$year,$month); ?>
         
             </tbody>
           </table>

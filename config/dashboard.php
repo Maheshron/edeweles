@@ -706,7 +706,7 @@ public function update_indexing($id,$indexing_image,$index_link,$index_logo_desc
           $result50 = mysqli_query($this->db,$sql50);
           while($row = mysqli_fetch_array($result50)){
                  echo '
-                 <form method="post" action="">
+                 
                  <tr>
                  <td>
                      <b>Volume '. $row['volume_number'].' ,Issue '.$row['issue_number'] .'</b><br>
@@ -716,15 +716,52 @@ public function update_indexing($id,$indexing_image,$index_link,$index_logo_desc
                    </td>
                  
                  <td class="text-center">
-                      <button type="submit" class="btn btn-primary  mt-2 fixbtn" name="ArticleInPress"  title="Edit" > Move To Articleinpress</button>
-                      <button type="submit" class="btn btn-primary mt-2 fixbtn"  name="PreviousIssue"   title="Edit" > Move To Previous Issues</button>
-                      <button type="submit" class="btn btn-primary mt-2 fixbtn"  name="SpecialIssue"    title="Edit" > Move To Special Issues</button>
-                  </td>
+                 <form action="" method="post">
+                      <button type="submit" class="btn btn-primary mt-2 fixbtn"  name="ArticleInPress" value="ArticleInPress"   title="Edit" > Move To Articleinpress</button>
+                      <button type="submit" class="btn btn-primary mt-2 fixbtn"  name="PreviousIssue"  value="PreviousIssue"  title="Edit" > Move To Previous Issues</button>
+                      <button type="submit" class="btn btn-primary mt-2 fixbtn"  name="SpecialIssue"   value="SpecialIssue" title="Edit" > Move To Special Issues</button>
+                  </form>
+                      </td>
                  
                </tr>
-               </form>
+               
                  ';
           }
+        }
+        ///*** For getting articles by year and month ***///
+        public function get_articles_byyear_month($id,$year,$month){
+          $sql52 = "select * from articals where journal_id='$id'and year='$year' and month='$month'";
+          $result52 = mysqli_query($this->db,$sql52);
+          while($row = mysqli_fetch_array($result52)){
+            echo '
+                 
+                 <tr>
+                 <td>
+                     <b>Volume '. $row['volume_number'].' ,Issue '.$row['issue_number'] .'</b><br>
+                      <div class="container" style="padding:10px">'.$row['artical_name'].'<br>
+                     '.$row['doi_link'].' <br>
+                     '.$row['author_names'].'</div>
+                   </td>
+                 
+                 <td class="text-center">
+                 <form action="" method="post">
+                      <button type="submit" class="btn btn-primary mt-2 fixbtn"  name="ArticleInPress" value="ArticleInPress"   title="Edit" > Move To Articleinpress</button>
+                      <button type="submit" class="btn btn-primary mt-2 fixbtn"  name="PreviousIssue"  value="PreviousIssue"  title="Edit" > Move To Previous Issues</button>
+                      <button type="submit" class="btn btn-primary mt-2 fixbtn"  name="SpecialIssue"   value="SpecialIssue" title="Edit" > Move To Special Issues</button>
+                  </form>
+                      </td>
+                 
+               </tr>
+               
+                 ';
+                
+          }
+        }
+        ///*** For Updating the issue status ***/
+        public function update_issue($id,$status){
+          $sql51  = "update articals set status_type = '$status' where journal_id ='$id' ";
+          $result51 = mysqli_query($this->db,$sql51);
+          return true;
         }
         ///*** for deleting journals article by id ***/
         public function delete_jarticle_id($article_id){

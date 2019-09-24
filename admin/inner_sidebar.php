@@ -125,20 +125,20 @@ if (isset($_REQUEST['journal_id'])) {
         
         </li>
         <li class="site-menu-item has-sub">
-          <a href="current_issues.php">
+          <a href="current_issues.php?journal_id=<?php echo $journal_id; ?>">
                     <i class="site-menu-icon wb-graph-up" aria-hidden="true"></i>
                     <span class="site-menu-title">Current Issues</span>
                 </a>
          
         </li>
         <li class="site-menu-item has-sub">
-          <a href="previous_issues.php">
+          <a href="previous_issues.php?journal_id=<?php echo $journal_id; ?>">
                     <i class="site-menu-icon wb-video" aria-hidden="true"></i>
                     <span class="site-menu-title">Previous Issues</span>
                 </a>
         </li>
         <li class="site-menu-item has-sub">
-          <a href="special_issues.php">
+          <a href="special_issues.php?journal_id=<?php echo $journal_id; ?>">
                     <i class="site-menu-icon wb-tag" aria-hidden="true"></i>
                     <span class="site-menu-title">Special Issues</span>
                 </a>
